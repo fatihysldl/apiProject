@@ -1,0 +1,32 @@
+﻿@model List<toDoListViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="margin-top:10px;">To Do List</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <th>TO Do List Id</th>
+        <th>TO Do List Header</th>
+        <th>TO Do List Description</th>
+        <th>TO Do List Image Path</th>
+    </tr>
+    <tbody>
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.toDoListId</td>
+                <td>@i.toDoListHeader</td>
+                <td>@i.toDoListDescription</td>
+                <td>@i.toDoListImage</td>
+                <td><a href="/adminToDoList/updateToDoList/@i.toDoListId" class="btn btn-success">Edit</a></td>
+                <td><a href="/adminToDoList/ToDoListDelete/@i.toDoListId" class="btn btn-outline-warning">Delete</a></td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="~/adminToDoList/addToDoList" class="btn btn-primary">Add</a>
+

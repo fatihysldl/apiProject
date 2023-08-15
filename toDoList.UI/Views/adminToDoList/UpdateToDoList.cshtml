@@ -1,0 +1,25 @@
+﻿@model updateToDoListViewModel
+@{
+    ViewData["Title"] = "UpdateToDoList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style ="margin-top:10px;">Update To Do List</h1>
+
+@using (Html.BeginForm("updateToDoList", "adminToDoList", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>To Do List Header</label>
+        @Html.TextBoxFor(i=>i.toDoListHeader, new {@class="form-control"})
+        <br>
+        <label>To Do List Description</label>
+        @Html.TextBoxFor(i=>i.toDoListDescription, new {@class="form-control"})
+        <br>
+        <label>To Do List Image</label>
+        @Html.TextBoxFor(i=>i.toDoListImage, new {@class="form-control"})
+        <br>
+        @Html.HiddenFor(i=>i.toDoListId)
+        <button class=" btn btn-success">Update List</button>
+    </div>
+
+}
